@@ -7,3 +7,7 @@ var postSchema = mongoose.Schema({
   createdAt:{type:Date, default:Date.now},
   updatedAt:{type:Date},
 });
+
+// model & export
+var Post = mongoose.model('post', postSchema);
+module.exports = Post;
