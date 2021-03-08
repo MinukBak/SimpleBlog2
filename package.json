@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "simpleblog2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "minukbak",
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.19.0",

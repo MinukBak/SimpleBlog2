@@ -1,4 +1,4 @@
-# SimpleBlog2
+# simpleblog2
 <br>
 Node.js + MongoDB 블로그 제작 프로젝트입니다.
 
