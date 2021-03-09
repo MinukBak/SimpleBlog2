@@ -1,9 +1,11 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
 .breadcrumb-item {
   font-size: 0.8em !important;
 }
+
 .ellipsis{
   display: block;
   width: 100%;
@@ -24,4 +26,8 @@ body {
 }
 .post-info{
   font-size: 0.8em;
+}
+
+.user-form {
+  width: 400px;
 }
