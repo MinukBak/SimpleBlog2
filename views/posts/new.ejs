@@ -6,6 +6,7 @@
   <body>
     <%- include('../partials/nav') %>
     <div class="container mb-3">
+
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-1 pl-2 pr-2">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -13,7 +14,9 @@
           <li class="breadcrumb-item active" aria-current="page">New Post</li>
         </ol>
       </nav>
-      <form action="/posts" method="post">
+
+      <form action="/posts<%= getPostQueryString() %>" method="post">
+
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" id="title" name="title" value="<%= post.title %>" class="form-control <%= (errors.title)?'is-invalid':'' %>">
@@ -21,6 +24,7 @@
             <span class="invalid-feedback"><%= errors.title.message %></span>
           <% } %>
         </div>
+
         <div class="form-group">
           <label for="body">Body</label>
           <textarea id="body" name="body" rows="5" class="form-control <%= (errors.body)?'is-invalid':'' %>"><%= post.body %></textarea>
@@ -28,15 +32,18 @@
             <span class="invalid-feedback"><%= errors.body.message %></span>
           <% } %>
         </div>
+
         <% if(errors.unhandled){ %>
           <div class="invalid-feedback d-block">
             <%= errors.unhandled %>
           </div>
         <% } %>
+
         <div>
-          <a class="btn btn-primary" href="/posts">Back</a>
+          <a class="btn btn-primary" href="/posts<%= getPostQueryString() %>">Back</a>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+
       </form>
     </div>
   </body>
