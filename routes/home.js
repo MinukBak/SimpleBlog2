@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var Post = require('../models/Post');
 var passport = require('../config/passport');
 
 // Home
 router.get('/', function(req, res){
-  res.render('home/welcome');
+  Post.find({})
+    .populate('author')
+    .sort('-createdAt')
+    .exec(function(err, posts){
+      if(err) return res.json(err);
+      res.render('home/welcome', {posts:posts});
+    });
 });
 
 router.get('/about', function(req, res){
