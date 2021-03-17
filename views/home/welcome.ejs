@@ -9,14 +9,14 @@
     <div class="container mb-3">
 
       <div class="jumbotron">
-        <h1>Welcome!</h1>
+        <h2>Welcome!</h2>
         <P>블로그를 방문해 주셔서 감사합니다!</p>
       </div>
 
     </div>
 
     <div class="container mb-3">
-      <h2>Resent Posts</h2>
+      <h3>Resent Posts</h3>
 
       <table class="board-table table table-sm border-bottom">
 
@@ -39,9 +39,12 @@
             <% post = posts[i]%>
             <tr>
               <td>
-                <div class="ellipsis"><%= post.title %></div></a>
+                <a href="/posts/<%= post._id %>">
+                  <div class="ellipsis"><%= post.title %></div>
+                </a>
               </td>
               <td class="author">
+                <a href="/posts/<%= post._id %>">
                   <div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
                 </a>
               </td>

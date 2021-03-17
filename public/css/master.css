@@ -6,6 +6,11 @@ body {
   font-size: 0.8em !important;
 }
 
+.jumbotron{
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
 .ellipsis{
   display: block;
   width: 100%;

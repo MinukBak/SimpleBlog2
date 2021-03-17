@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var Post = require('../models/Post');
 var passport = require('../config/passport');
+var Post = require('../models/Post');
+var User = require('../models/User');
+var util = require('../util');
 
 // Home
 router.get('/', function(req, res){
