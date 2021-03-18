@@ -60,8 +60,8 @@ router.post('/', util.isLoggedin, function(req, res){
 
 // show
 router.get('/:id', function(req, res){
-  var commentForm = req.flash('commentForm')[0] || {_id: null, form: {}};
-  var commentError = req.flash('commentError')[0] || { _id:null, parentComment: null, errors:{}};
+  var commentForm = req.flash('commentForm')[0] || { _id: null, form: {} };
+  var commentError = req.flash('commentError')[0] || { _id:null, parentComment: null, errors:{} };
 
   Promise.all([
       Post.findOne({_id:req.params.id}).populate({ path: 'author', select: 'username' }),
@@ -72,7 +72,6 @@ router.get('/:id', function(req, res){
       res.render('posts/show', { post:post, commentTrees:commentTrees, commentForm:commentForm, commentError:commentError});
     })
     .catch((err) => {
-      console.log('err: ', err);
       return res.json(err);
     });
 });

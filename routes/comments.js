@@ -13,7 +13,7 @@ router.post('/', util.isLoggedin, checkPostId, function(req, res){
 
   Comment.create(req.body, function(err, comment){
     if(err){
-      req.flash('commentForm', { _id: null, form:req.body });
+      req.flash('commentForm', { _id:null, form:req.body });
       req.flash('commentError', { _id:null, parentComment:req.body.parentComment, errors:util.parseError(err) });
     }
     return res.redirect('/posts/'+post._id+res.locals.getPostQueryString());
@@ -27,7 +27,7 @@ router.put('/:id', util.isLoggedin, checkPermission, checkPostId, function(req, 
   req.body.updatedAt = Date.now();
   Comment.findOneAndUpdate({_id:req.params.id}, req.body, {runValidators:true}, function(err, comment){
     if(err){
-      req.flash('commentForm', { _id: req.params.id, form:req.body });
+      req.flash('commentForm', { _id:req.params.id, form:req.body });
       req.flash('commentError', { _id:req.params.id, parentComment:req.body.parentComment, errors:util.parseError(err) });
     }
     return res.redirect('/posts/'+post._id+res.locals.getPostQueryString());
@@ -64,7 +64,7 @@ function checkPermission(req, res, next){
 }
 
 function checkPostId(req, res, next){
-  Post.findOne({_id:req.query.postId},function(err, post){
+  Post.findOne({_id:req.query.postId}, function(err, post){
     if(err) return res.json(err);
 
     res.locals.post = post;
