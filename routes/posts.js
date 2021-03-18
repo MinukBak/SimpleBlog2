@@ -28,6 +28,38 @@ router.get('/', async function(req, res){
       .exec();
   }
 
+  if(searchQuery) {
+    var count = await Post.countDocuments(searchQuery);
+    maxPage = Math.ceil(count/limit);
+    posts = await Post.aggregate([
+      { $match: searchQuery },
+      { $lookup: {
+          from: 'users',
+          localField: 'author',
+          foreignField: '_id',
+          as: 'author'
+      } },
+      { $unwind: '$author' },
+      { $sort : { createdAt: -1 } },
+      { $skip: skip },
+      { $limit: limit },
+      { $lookup: {
+          from: 'comments',
+          localField: '_id',
+          foreignField: 'post',
+          as: 'comments'
+      } },
+      { $project: {
+          title: 1,
+          author: {
+            username: 1,
+          },
+          createdAt: 1,
+          commentCount: { $size: '$comments'}
+      } },
+    ]).exec();
+  }
+
   res.render('posts/index', {
     posts:posts,
     currentPage:page,
