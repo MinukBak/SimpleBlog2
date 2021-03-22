@@ -54,6 +54,8 @@ router.get('/', async function(req, res){
           author: {
             username: 1,
           },
+          views: 1,
+          numId: 1,
           createdAt: 1,
           commentCount: { $size: '$comments'}
       } },

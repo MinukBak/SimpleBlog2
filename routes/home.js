@@ -7,13 +7,7 @@ var util = require('../util');
 
 // Home
 router.get('/', function(req, res){
-  Post.find({})
-    .populate('author')
-    .sort('-createdAt')
-    .exec(function(err, posts){
-      if(err) return res.json(err);
-      res.render('home/welcome', {posts:posts});
-    });
+  res.render('home/welcome');
 });
 
 router.get('/about', function(req, res){
