@@ -85,9 +85,6 @@ $(function(){
       if(ellipsisWidth <= (textWidth+commentWidth+padding)){
         $ellipsis.width(ellipsisWidth-(commentWidth+padding));
       }
-      else {
-        $ellipsis.width(textWidth+padding);
-      }
     });
   }
   $(window).resize(function(){
