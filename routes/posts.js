@@ -20,17 +20,6 @@ router.get('/', async function(req, res){
   if(searchQuery) {
     var count = await Post.countDocuments(searchQuery);
     maxPage = Math.ceil(count/limit);
-    posts = await Post.find(searchQuery)
-      .populate('author')
-      .sort('-createdAt')
-      .skip(skip)
-      .limit(limit)
-      .exec();
-  }
-
-  if(searchQuery) {
-    var count = await Post.countDocuments(searchQuery);
-    maxPage = Math.ceil(count/limit);
     posts = await Post.aggregate([
       { $match: searchQuery },
       { $lookup: {
@@ -102,6 +91,8 @@ router.get('/:id', function(req, res){
       Comment.find({post:req.params.id}).sort('createdAt').populate({ path: 'author', select: 'username' })
     ])
     .then(([post, comments]) => {
+      post.views++;
+      post.save();
       var commentTrees = util.convertToTrees(comments, '_id','parentComment','childComments');
       res.render('posts/show', { post:post, commentTrees:commentTrees, commentForm:commentForm, commentError:commentError});
     })
