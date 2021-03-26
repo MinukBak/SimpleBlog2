@@ -69,7 +69,7 @@ util.convertToTrees = function(array, idFieldName, parentIdFieldName, childrenFi
         var parent = filtered[0];
 
         if(parent[childrenFieldName]){
-          parent[childrenFieldName].push(cloned[i]);
+          parent[childrenFieldName].unshift(cloned[i]);
         }
         else {
           parent[childrenFieldName] = [cloned[i]];
