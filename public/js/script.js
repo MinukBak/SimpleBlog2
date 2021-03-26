@@ -77,6 +77,8 @@ $(function(){
       var $ellipsis = $(e).closest('.title-ellipsis');
       var $comment = $(e).closest('.title-container').find('.title-comments');
 
+      if($comment.length == 0) return;
+
       var textWidth = $text.width();
       var ellipsisWidth = $ellipsis.outerWidth();
       var commentWidth = $comment.outerWidth();
@@ -84,6 +86,9 @@ $(function(){
 
       if(ellipsisWidth <= (textWidth+commentWidth+padding)){
         $ellipsis.width(ellipsisWidth-(commentWidth+padding));
+      }
+      else {
+        $ellipsis.width(textWidth+padding);
       }
     });
   }
