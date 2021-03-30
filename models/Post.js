@@ -3,7 +3,16 @@ var Counter = require('./Counter');
 
 // schema
 var postSchema = mongoose.Schema({
-  title:{type:String, required:[true,'Title is required!']},
+  title:{
+    type:String,
+    required:[true,'Title is required!'],
+    validate : [
+      function(title) {
+        return title.length <= 50;
+      },
+      'Please write within 50 characters!'
+    ],
+  },
   body:{type:String, required:[true,'Body is required!']},
   author:{type:mongoose.Schema.Types.ObjectId, ref:'user', required:true},
   views:{type:Number, default:0},
