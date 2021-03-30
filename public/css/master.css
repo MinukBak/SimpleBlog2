@@ -56,7 +56,7 @@ body {
 }
 
 .user-form {
-  width: 400px;
+  max-width: 600px;
 }
 
 .highlighted {
