@@ -26,10 +26,6 @@ body {
   width: 30px;
   text-align: center;
 }
-.board-table .views{
-  width: 60px;
-  text-align: center;
-}
 .board-table .author,
 .board-table .date {
   width: 100px;
