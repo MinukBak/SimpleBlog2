@@ -48,10 +48,10 @@ body {
   color: gray;
 }
 .post-index-tool {
-  max-width: 450px;
+  margin: auto;
 }
 .post-index-tool input[type='text']{
-  max-width: 130px;
+  text-align: right;
 }
 
 .user-form {
