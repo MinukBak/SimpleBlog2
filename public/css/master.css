@@ -51,7 +51,7 @@ body {
   margin: auto;
 }
 .post-index-tool input[type='text']{
-  text-align: right;
+  text-align: left;
 }
 
 .user-form {
@@ -61,7 +61,11 @@ body {
 .highlighted {
   font-weight: bold;
 }
-
+.cancel{
+  margin: 0;
+  position: absolute;
+  transform: translate(15%, 270%);
+}
 .comment-edit,
 .comment-reply,
 .comment-edit-enabled .comment-show {

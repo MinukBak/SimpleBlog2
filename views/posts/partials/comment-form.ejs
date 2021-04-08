@@ -3,19 +3,17 @@
     <% if(parentComment){ %>
       <input type="hidden" name="parentComment" value="<%= parentComment %>">
     <% } %>
-    <div class="row">
-      <div class="col-8">
-        <textarea name="text" rows="2" class="form-control <%= (commentError._id == comment._id && commentError.parentComment == parentComment && commentError.errors.text)?'is-invalid':'' %>"><%= (commentForm._id == comment._id)?commentForm.form.text:comment.text %></textarea>
-      </div>
-      <div class="col-4">
+    <div class="input-group mt-2 mb-4">
+      <textarea name="text" rows="2" class="form-control <%= (commentError._id == comment._id && commentError.parentComment == parentComment && commentError.errors.text)?'is-invalid':'' %>"><%= (commentForm._id == comment._id)?commentForm.form.text:comment.text %></textarea>
+      <div class="input-group-append">
         <% if(comment._id){ %>
-          <button type="submit" class="btn btn-primary mr-2 pl-4 pr-4">Edit</button>
-          <a href="javascript:void(0)" class="btn" onclick="$('#comment-<%= comment._id %>').removeClass('comment-edit-enabled')">Cancel</a>
+          <a href="javascript:void(0)" class="cancel" onclick="$('#comment-<%= comment._id %>').removeClass('comment-edit-enabled')">Cancel</a>
+          <button type="submit" class="btn btn-outline-primary pl-3 pr-3">Edit</button>
         <% } else if(parentComment) {%>
-          <button type="submit" class="btn btn-primary mr-2">Add Reply</button>
-          <a href="javascript:void(0)" class="btn" onclick="$('#comment-<%= parentComment %>').removeClass('comment-reply-enabled')">Cancel</a>
+          <a href="javascript:void(0)" class="cancel" onclick="$('#comment-<%= parentComment %>').removeClass('comment-reply-enabled')"><span class="center">Cancel</span></a>
+          <button type="submit" class="btn btn-outline-primary">Reply</button>
         <% } else { %>
-          <button type="submit" class="btn btn-primary h-100 mr-2">Add Comment</button>
+          <button type="submit" class="btn btn-outline-primary">Add Comment</button>
         <% } %>
       </div>
     </div>
