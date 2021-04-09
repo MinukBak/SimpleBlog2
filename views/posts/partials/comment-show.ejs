@@ -7,7 +7,7 @@
       <div id="comment-<%= comment._id %>" class="col-9 col-md-10 <%= (commentError._id == comment._id)?'comment-edit-enabled':'' %> <%= (commentError.parentComment == comment._id)?'comment-reply-enabled':'' %>">
         <div class="comment-show">
           <div class="comment-text mb-3"><%= comment.text %></div>
-          <small class="d-block">
+          <small class="d-block comment-info">
             ( Created: <span data-date-time="<%= comment.createdAt %>"></span>
             <% if(comment.updatedAt){ %>
               | Updated: <span data-date-time="<%= comment.updatedAt %>"></span>

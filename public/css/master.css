@@ -1,11 +1,12 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
-
+.navbar-brand {
+  font-size: 1.4em !important;
+}
 .breadcrumb-item {
   font-size: 0.8em !important;
 }
-
 .jumbotron{
   padding-top: 30px !important;
   padding-bottom: 30px !important;
@@ -75,4 +76,8 @@ body {
 .comment-edit-enabled .comment-edit,
 .comment-reply-enabled .comment-reply {
   display:inherit;
+}
+.comment-info{
+  font-size: 0.8em;
+  color: gray;
 }

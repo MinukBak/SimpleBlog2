@@ -21,8 +21,8 @@
         <div class ="card-header p-2" data-search-highlight="title">
           <h5><%= post.title %></h5>
           <div class="post-info pt-1 mt-1">
-            <span>Author</span> : <span data-search-highlight="author"><%= post.author ? post.author.username : "" %> | </span>
-            <span>Created</span> : <span data-date="<%= post.createdAt %>"></span>
+            <span>Author</span>: <span data-search-highlight="author"><%= post.author ? post.author.username : "" %> | </span>
+            <span>Created</span>: <span data-date="<%= post.createdAt %>"></span>
           </div>
         </div>
 
@@ -30,7 +30,7 @@
           <div class="post-body p-2" data-search-highlight="body"><%= post.body %></div>
           <div class="post-info p-2">
             <% if(post.updatedAt) { %>
-              <span>Updated</span> : <span data-date="<%= post.updatedAt %>"></span>
+              <span>Updated</span>: <span data-date="<%= post.updatedAt %>"></span>
             <% } %>
           </div>
         </div>
