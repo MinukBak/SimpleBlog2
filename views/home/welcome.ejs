@@ -16,8 +16,35 @@
     </div>
 
     <div class="container mb-3">
-      <h5></h5>
-    </div>
+      <h3 class="mb-3">Latest Posts</h3>
+
+      <% if(posts == null || posts.length == 0){ %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-text">There is no data to show :(</h5>
+          </div>
+        </div>
+      <% } %>
+
+      <% posts.forEach(function(post) { %>
+        <a href="/posts/<%= post._id %><%= getPostQueryString() %>" class="card m-2">
+          <div class="card-block p-2 pl-4 pr-4">
+
+            <div class="title-ellipsis ellipsis float-left border-bottom">
+              <span class="card-title h5"><%= post.title %></span>
+            </div>
+
+            <div class="title-ellipsis ellipsis float-left">
+              <span class="card-text"><%= post.body %></span>
+            </div>
+
+          </div>
+        </a>
+      <% }) %>
+
+        <a href="#" class="btn btn-outline-primary mt-3">더보기</a>
+
+      </div>
 
   </body>
 </html>
