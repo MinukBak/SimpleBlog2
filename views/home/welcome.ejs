@@ -27,23 +27,20 @@
       <% } %>
 
       <% posts.forEach(function(post) { %>
-        <a href="/posts/<%= post._id %><%= getPostQueryString() %>" class="card m-2">
-          <div class="card-block p-2 pl-4 pr-4">
+        <a href="/posts/<%= post._id %><%= getPostQueryString() %>" class="card mb-2">
+          <div class="card-block p-2 pl-3 pr-3">
 
-            <div class="title-ellipsis ellipsis float-left border-bottom">
-              <span class="card-title h5"><%= post.title %></span>
+            <div class="title-ellipsis ellipsis float-left border-bottom color-gray">
+              <span class="card-title"><%= post.title %></span>
             </div>
 
-            <div class="title-ellipsis ellipsis float-left">
+            <div class="title-ellipsis ellipsis float-left color-gray">
               <span class="card-text"><%= post.body %></span>
             </div>
 
           </div>
         </a>
       <% }) %>
-
-        <a href="#" class="btn btn-outline-primary mt-3">더보기</a>
-
       </div>
 
   </body>
