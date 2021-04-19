@@ -27,6 +27,11 @@
         </div>
 
         <div class="card-body p-0">
+          <% if(post.attachment) { %>
+            <div class="ml-2">
+              <small>📁 Attachment: <%= post.attachment.originalFileName %> (<%= util.bytesToSize(post.attachment.size) %>)</small>
+            </div>
+          <% } %>
           <div class="post-body p-2" data-search-highlight="body"><%= post.body %></div>
           <div class="post-info p-2">
             <% if(post.updatedAt) { %>
