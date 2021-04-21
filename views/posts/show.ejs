@@ -29,7 +29,7 @@
         <div class="card-body p-0">
           <% if(post.attachment) { %>
             <div class="ml-2">
-              <small>📁 Attachment: <%= post.attachment.originalFileName %> (<%= util.bytesToSize(post.attachment.size) %>)</small>
+              <small>📁 Attachment: <a href="/files/<%= post.attachment.serverFileName %>/<%= post.attachment.originalFileName %>"><%= post.attachment.originalFileName %></a> (<%= util.bytesToSize(post.attachment.size) %>)</small>
             </div>
           <% } %>
           <div class="post-body p-2" data-search-highlight="body"><%= post.body %></div>
