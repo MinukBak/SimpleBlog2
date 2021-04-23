@@ -41,12 +41,23 @@ router.get('/', async function(req, res){
           foreignField: 'post',
           as: 'comments'
       } },
+      { $lookup: {
+          from: 'files',
+          localField: 'attachment',
+          foreignField: '_id',
+          as: 'attachment'
+      } },
+      { $unwind: {
+        path: '$attachment',
+        preserveNullAndEmptyArrays: true
+      } },
       { $project: {
           title: 1,
           author: {
             username: 1,
           },
           numId: 1,
+          attachment: { $cond: [{$and: ['$attachment', {$not: '$attachment.isDeleted'}]}, true, false] },
           createdAt: 1,
           commentCount: { $size: '$comments'}
       } },
