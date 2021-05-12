@@ -6,30 +6,11 @@ var User = require('../models/User');
 var util = require('../util');
 
 // Home
-router.get('/', async function(req, res){
-  var page = Math.max(1, parseInt(req.query.page));
-  var limit = Math.max(1, parseInt(req.query.limit));
-  page = !isNaN(page)?page:1;
-  limit = !isNaN(limit)?limit:5;
-
-  var skip = (page-1)*limit;
-  var count = await Post.countDocuments({});
-  var maxPage = Math.ceil(count/limit);
-  var posts = await Post.find({})
-    .populate('author')
-    .sort('-createdAt')
-    .skip(skip)
-    .limit(limit)
-    .exec();
-
-  res.render('home/welcome', {
-    posts:posts,
-    currentPage:page,
-    maxPage:maxPage,
-    limit:limit
-  });
+router.get('/', function(req, res){
+  res.render('home/welcome');
 });
 
+// About
 router.get('/about', function(req, res){
   res.render('home/about');
 });

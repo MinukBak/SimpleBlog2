@@ -7,19 +7,13 @@ body {
 .breadcrumb-item {
   font-size: 0.8em !important;
 }
-.jumbotron {
-  padding-top: 30px !important;
-  padding-bottom: 30px !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-}
 .card-title {
   color: gray;
   font-size: 1.2em;
 }
 .card-text {
   color: gray;
-  font-size: 0.8em
+  font-size: 0.8em;
 }
 
 .color-gray {
